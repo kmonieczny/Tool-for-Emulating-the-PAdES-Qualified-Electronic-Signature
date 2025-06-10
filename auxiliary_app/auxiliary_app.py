@@ -1,9 +1,11 @@
 import sys
 import time
+import os
 from hashlib import sha256
 from Cryptodome.PublicKey import RSA
 from Cryptodome.Cipher import AES
-from Cryptodome.Util.Padding import pad
+from Cryptodome.Util.Padding import pad, unpad
+from Cryptodome.Random import get_random_bytes
 from PyQt5.QtWidgets import QApplication, QWidget, QVBoxLayout, QLabel, QLineEdit, QPushButton
 from PyQt5.QtCore import Qt, QThread, pyqtSignal
 
@@ -24,10 +26,12 @@ def generate(pin, progress_callback):
 
 
     progress_callback.emit("Encrypting RSA key…")
-    cipher = AES.new(key_from_pin, AES.MODE_ECB)
-    rsa_key_encrypted = cipher.encrypt(rsa_key_padded)
+    nonce = get_random_bytes(12)
+    cipher = AES.new(key_from_pin, AES.MODE_GCM, nonce=nonce)
+    rsa_key_encrypted, tag = cipher.encrypt_and_digest(rsa_key_padded)
+    
     with open('encrypted_private_key.bin', 'wb') as f:
-        f.write(rsa_key_encrypted)
+        f.write(nonce + tag + rsa_key_encrypted)
     print("Zaszyfrowany klucz prywatny: ", rsa_key_encrypted.hex())
 
     progress_callback.emit("Saving public key…")
@@ -39,12 +43,13 @@ def generate(pin, progress_callback):
     progress_callback.emit("Done. Saved to encrypted_private_key.bin and public_key.pem")
 
 
-    #################################################
-    rsa_key_decrypted = cipher.decrypt(rsa_key_encrypted)
-    print("Odszyfrowany klucz prywatny: ", rsa_key_decrypted)
-
-
-
+    try:
+        decrypt_cipher = AES.new(key_from_pin, AES.MODE_GCM, nonce=nonce)
+        decrypted_padded = decrypt_cipher.decrypt_and_verify(rsa_key_encrypted, tag)
+        decrypted_key = unpad(decrypted_padded, AES.block_size)
+        print("Verification successful - key can be decrypted")
+    except Exception as e:
+        print(f"Warning: Verification failed - {str(e)}")
 
 
 class WorkerThread(QThread):

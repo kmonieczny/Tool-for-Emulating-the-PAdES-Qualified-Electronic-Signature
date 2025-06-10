@@ -1,7 +1,7 @@
 import sys
 from PyQt5.QtWidgets import (QApplication, QMainWindow, QTabWidget, QWidget, 
                             QVBoxLayout, QHBoxLayout, QPushButton, QLabel, 
-                            QLineEdit, QFileDialog)
+                            QLineEdit, QFileDialog, QMessageBox)
 from PyQt5.QtCore import Qt, QTimer
 from PyQt5.QtGui import QIcon
 import os
@@ -11,6 +11,7 @@ class PAdESApp(QMainWindow):
     def __init__(self):
         super().__init__()
         self.signer = PAdESSigner()
+        self.signer.set_status_callback(self.update_status)
         self.init_ui()
 
     def init_ui(self):
@@ -62,6 +63,9 @@ class PAdESApp(QMainWindow):
         sign_button.clicked.connect(self.sign_document)
         layout.addWidget(sign_button)
         
+        self.status_label = QLabel("")
+        layout.addWidget(self.status_label)
+        
         layout.addStretch()
         sign_tab.setLayout(layout)
         return sign_tab
@@ -88,8 +92,8 @@ class PAdESApp(QMainWindow):
         verify_button.clicked.connect(self.verify_document)
         layout.addWidget(verify_button)
         
-        self.verification_status = QLabel("")
-        layout.addWidget(self.verification_status)
+        self.verify_status_label = QLabel("")
+        layout.addWidget(self.verify_status_label)
         
         layout.addStretch()
         verify_tab.setLayout(layout)
@@ -103,16 +107,37 @@ class PAdESApp(QMainWindow):
             self.selected_file_label.setText(f"Selected file: {os.path.basename(file_name)}")
 
     def sign_document(self):
-        if hasattr(self, 'selected_file_path'):
-            self.signer.sign_document(self.selected_file_path)
+        self.signer.set_status_callback(self.update_status)
+        if not hasattr(self, 'selected_file_path'):
+            QMessageBox.warning(self, "Warning", "Please select a file first")
+            return
+            
+        if not self.signer.private_key_path:
+            QMessageBox.warning(self, "Warning", "No pendrive with private key detected")
+            return
+            
+        pin = self.pin_input.text()
+        if not pin:
+            QMessageBox.warning(self, "Warning", "Please enter PIN")
+            return
+            
+        success = self.signer.sign_document(self.selected_file_path, pin)
+        if success:
+            QMessageBox.information(self, "Success", "Document signed successfully")
         else:
-            self.selected_file_label.setText("Please select a file first")
+            QMessageBox.critical(self, "Error", "Failed to sign document")
 
     def verify_document(self):
-        if hasattr(self, 'verify_file_path') and hasattr(self, 'public_key_path'):
-            self.signer.verify_document(self.verify_file_path, self.public_key_path)
+        self.signer.set_status_callback(self.update_verify_status)
+        if not hasattr(self, 'verify_file_path') or not hasattr(self, 'public_key_path'):
+            QMessageBox.warning(self, "Warning", "Please select both a file and a public key")
+            return
+            
+        success = self.signer.verify_document(self.verify_file_path, self.public_key_path)
+        if success:
+            QMessageBox.information(self, "Success", "Document verified successfully")
         else:
-            self.verification_status.setText("Please select both a file and a public key first")
+            QMessageBox.critical(self, "Error", "Failed to verify document")
 
     def select_pdf_to_verify(self):
         file_name, _ = QFileDialog.getOpenFileName(
@@ -123,19 +148,28 @@ class PAdESApp(QMainWindow):
 
     def select_public_key(self):
         file_name, _ = QFileDialog.getOpenFileName(
-            self, "Select Public Key", "", "All Files (*.*)")
+            self, "Select Public Key", "", "PEM Files (public_key.pem)")
         if file_name:
+            if os.path.basename(file_name) != "public_key.pem":
+                QMessageBox.warning(self, "Warning", "Please select a file named 'public_key.pem'")
+                return
             self.public_key_path = file_name
             self.public_key_label.setText(f"Selected key: {os.path.basename(file_name)}")
 
     def update_pendrive_status(self):
-        if self.signer.check_for_pendrive():
-            if self.signer.private_key_path:
-                self.pendrive_status.setText(f"Pendrive found: {self.signer.pendrive_path}\nPrivate key found: {os.path.basename(self.signer.private_key_path)}")
-                self.pendrive_status.setStyleSheet("color: green")
-            else:
-                self.pendrive_status.setText(f"Pendrive found: {self.signer.pendrive_path}\nNo private key found")
-                self.pendrive_status.setStyleSheet("color: orange")
+        self.signer.check_for_pendrive()
+        if self.signer.private_key_path:
+            self.pendrive_status.setText(f"Pendrive found: {self.signer.pendrive_path}\nPrivate key found: {os.path.basename(self.signer.private_key_path)}")
+            self.pendrive_status.setStyleSheet("color: green")
+        elif self.signer.pendrive_path:
+            self.pendrive_status.setText(f"Pendrive found: {self.signer.pendrive_path}\nNo valid private key found")
+            self.pendrive_status.setStyleSheet("color: orange")
         else:
             self.pendrive_status.setText("No pendrive detected")
             self.pendrive_status.setStyleSheet("color: red")
+
+    def update_status(self, message):
+        self.status_label.setText(message)
+
+    def update_verify_status(self, message):
+        self.verify_status_label.setText(message)
