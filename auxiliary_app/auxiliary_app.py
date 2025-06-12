@@ -12,6 +12,10 @@ from PyQt5.QtCore import Qt, QThread, pyqtSignal
 
 
 def generate(pin, progress_callback):
+    if not pin or len(pin.strip()) == 0:
+        progress_callback.emit("Error: Password cannot be empty")
+        return
+
     progress_callback.emit("Hashing PIN…")
     key_from_pin = sha256(pin.encode()).digest()
     print("Hash pinu 256-bit: ", key_from_pin)
@@ -26,12 +30,11 @@ def generate(pin, progress_callback):
 
 
     progress_callback.emit("Encrypting RSA key…")
-    nonce = get_random_bytes(12)
-    cipher = AES.new(key_from_pin, AES.MODE_GCM, nonce=nonce)
-    rsa_key_encrypted, tag = cipher.encrypt_and_digest(rsa_key_padded)
+    cipher = AES.new(key_from_pin, AES.MODE_ECB)
+    rsa_key_encrypted = cipher.encrypt(rsa_key_padded)
     
     with open('encrypted_private_key.bin', 'wb') as f:
-        f.write(nonce + tag + rsa_key_encrypted)
+        f.write(rsa_key_encrypted)
     print("Zaszyfrowany klucz prywatny: ", rsa_key_encrypted.hex())
 
     progress_callback.emit("Saving public key…")
@@ -44,8 +47,8 @@ def generate(pin, progress_callback):
 
 
     try:
-        decrypt_cipher = AES.new(key_from_pin, AES.MODE_GCM, nonce=nonce)
-        decrypted_padded = decrypt_cipher.decrypt_and_verify(rsa_key_encrypted, tag)
+        decrypt_cipher = AES.new(key_from_pin, AES.MODE_ECB)
+        decrypted_padded = decrypt_cipher.decrypt(rsa_key_encrypted)
         decrypted_key = unpad(decrypted_padded, AES.block_size)
         print("Verification successful - key can be decrypted")
     except Exception as e:
@@ -76,6 +79,8 @@ class App(QWidget):
 
         # Text
         self.text_input = QLineEdit()
+        self.text_input.setEchoMode(QLineEdit.Password)
+        self.text_input.setPlaceholderText('Enter your password')
         layout.addWidget(self.text_input)
         self.text_input.returnPressed.connect(self.on_click)
 
