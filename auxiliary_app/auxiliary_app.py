@@ -10,7 +10,6 @@ from PyQt5.QtWidgets import QApplication, QWidget, QVBoxLayout, QLabel, QLineEdi
 from PyQt5.QtCore import Qt, QThread, pyqtSignal
 
 
-
 def generate(pin, progress_callback):
     if not pin or len(pin.strip()) == 0:
         progress_callback.emit("Error: Password cannot be empty")
@@ -19,7 +18,6 @@ def generate(pin, progress_callback):
     progress_callback.emit("Hashing PIN…")
     key_from_pin = sha256(pin.encode()).digest()
     print("Hash pinu 256-bit: ", key_from_pin)
-
 
     progress_callback.emit("Generating RSA key…")
     rsa_key_pair = RSA.generate(4096)
@@ -42,9 +40,7 @@ def generate(pin, progress_callback):
         f.write(rsa_public_key)
     print("Klucz publiczny: ", rsa_public_key.decode())
 
-
     progress_callback.emit("Done. Saved to encrypted_private_key.bin and public_key.pem")
-
 
     try:
         decrypt_cipher = AES.new(key_from_pin, AES.MODE_ECB)
@@ -63,6 +59,7 @@ class WorkerThread(QThread):
     def run(self):
         generate(self.text, self.progress_signal)
 
+
 class App(QWidget):
     def __init__(self):
         super().__init__()
@@ -77,26 +74,22 @@ class App(QWidget):
         label.setAlignment(Qt.AlignCenter)
         layout.addWidget(label)
 
-        # Text
         self.text_input = QLineEdit()
         self.text_input.setEchoMode(QLineEdit.Password)
         self.text_input.setPlaceholderText('Enter your password')
         layout.addWidget(self.text_input)
         self.text_input.returnPressed.connect(self.on_click)
 
-        # Button
         button = QPushButton('Generate')
         button.clicked.connect(self.on_click)
         layout.addWidget(button)
 
-        # Status
         self.progress_label = QLabel('Ready')
         self.progress_label.setAlignment(Qt.AlignCenter)
         layout.addWidget(self.progress_label)
 
         self.setLayout(layout)
 
-        # Styles
         self.setStyleSheet("""
             QWidget {
                 background-color: #1e1e1e;
@@ -145,14 +138,17 @@ class App(QWidget):
 
         self.progress_label.setObjectName("progress_label")
 
+
     def on_click(self):
         text = self.text_input.text()
         self.worker = WorkerThread(text)
         self.worker.progress_signal.connect(self.update_progress)
         self.worker.start()
 
+
     def update_progress(self, message):
         self.progress_label.setText(message)
+
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
