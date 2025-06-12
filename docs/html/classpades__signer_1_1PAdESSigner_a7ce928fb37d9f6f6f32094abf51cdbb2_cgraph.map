@@ -1,0 +1,7 @@
+<map id="pades_signer.PAdESSigner.verify_document" name="pades_signer.PAdESSigner.verify_document">
+<area shape="rect" id="Node000001" title="Weryfikuje podpisany dokument PDF." alt="" coords="5,37,237,77"/>
+<area shape="rect" id="Node000002" href="$classgui_1_1PAdESApp.html#aa926bb3fcf27826a641a2a817c53a4f9" title="Ustawia komunikat statusu dla zakładki podpisywania." alt="" coords="325,5,486,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="237,42,311,33,311,39,238,47"/>
+<area shape="rect" id="Node000003" href="$classpades__signer_1_1PAdESSigner.html#a2e758a3f080204a4224d9b60a64672cf" title="Aktualizuje status za pomocą wcześniej ustawionego callbacka." alt="" coords="285,69,525,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="238,68,272,72,271,77,237,73"/>
+</map>

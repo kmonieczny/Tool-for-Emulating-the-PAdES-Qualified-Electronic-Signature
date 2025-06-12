@@ -1,0 +1,21 @@
+<map id="gui.PAdESApp.update_status" name="gui.PAdESApp.update_status">
+<area shape="rect" id="Node000001" title="Ustawia komunikat statusu dla zakładki podpisywania." alt="" coords="908,67,1069,107"/>
+<area shape="rect" id="Node000002" href="$classgui_1_1PAdESApp.html#acf18c42ac87aa47d06114d3b48034966" title="Inicjalizuje okno główne i komponenty GUI." alt="" coords="5,36,171,61"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="938,63,900,47,859,35,764,20,666,11,567,8,472,10,298,22,166,38,165,33,298,17,472,4,567,3,666,6,765,14,861,30,902,42,940,58"/>
+<area shape="rect" id="Node000003" href="$classgui_1_1PAdESApp.html#ae868b5ec9df0944fdc3e8b963ebf2214" title="Podpisuje wybrany dokument PDF po podaniu PIN&#45;u i obecności pendrive&#39;a." alt="" coords="637,45,851,70"/>
+<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="894,78,850,73,850,68,894,73"/>
+<area shape="rect" id="Node000006" href="$classpades__signer_1_1PAdESSigner.html#a25ee615e3e0883ee037395d280d56f46" title="Podpisuje dokument PDF używając klucza prywatnego z pendrive&#39;a." alt="" coords="633,95,855,135"/>
+<area shape="poly" id="edge7_Node000001_Node000006" title=" " alt="" coords="895,101,856,105,855,100,894,95"/>
+<area shape="rect" id="Node000007" href="$classpades__signer_1_1PAdESSigner.html#a7ce928fb37d9f6f6f32094abf51cdbb2" title="Weryfikuje podpisany dokument PDF." alt="" coords="628,159,860,199"/>
+<area shape="poly" id="edge9_Node000001_Node000007" title=" " alt="" coords="938,116,861,150,825,162,823,156,859,145,936,111"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="125,26,115,18,88,14,66,16,54,21,52,27,58,34,54,37,47,27,50,18,65,11,88,9,117,13,128,22"/>
+<area shape="rect" id="Node000004" href="$classgui_1_1PAdESApp.html#a33e6828326b4cfad122f6c0e701b665b" title="Tworzy zakładkę do podpisywania dokumentów PDF." alt="" coords="423,56,580,96"/>
+<area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="623,70,580,73,580,68,623,64"/>
+<area shape="rect" id="Node000005" href="$classgui_1_1PAdESApp.html#a113bcded18b7a897dcea7ad9697ced20" title="Tworzy strukturę GUI i ustawia zakładki." alt="" coords="219,64,375,89"/>
+<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="409,79,375,79,375,74,409,74"/>
+<area shape="poly" id="edge6_Node000005_Node000002" title=" " alt="" coords="205,67,171,62,171,57,206,62"/>
+<area shape="poly" id="edge8_Node000006_Node000004" title=" " alt="" coords="619,98,580,92,581,86,620,93"/>
+<area shape="rect" id="Node000008" href="$classgui_1_1PAdESApp.html#a14b68406b64935ddc9b14e51dfec27d8" title="Tworzy zakładkę do weryfikacji podpisów PDF." alt="" coords="423,146,580,186"/>
+<area shape="poly" id="edge10_Node000007_Node000008" title=" " alt="" coords="614,175,580,173,580,167,614,169"/>
+<area shape="poly" id="edge11_Node000008_Node000005" title=" " alt="" coords="441,143,326,92,328,87,443,138"/>
+</map>

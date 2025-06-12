@@ -1,0 +1,15 @@
+<map id="gui.PAdESApp.create_sign_tab" name="gui.PAdESApp.create_sign_tab">
+<area shape="rect" id="Node000001" title="Tworzy zakładkę do podpisywania dokumentów PDF." alt="" coords="5,69,163,109"/>
+<area shape="rect" id="Node000002" href="$classgui_1_1PAdESApp.html#aea8b14c649eb90f10f0358ca39f750a2" title="Otwiera okno dialogowe wyboru pliku PDF do podpisania." alt="" coords="245,5,399,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="158,67,233,46,235,51,160,72"/>
+<area shape="rect" id="Node000003" href="$classgui_1_1PAdESApp.html#ae868b5ec9df0944fdc3e8b963ebf2214" title="Podpisuje wybrany dokument PDF po podaniu PIN&#45;u i obecności pendrive&#39;a." alt="" coords="215,134,429,159"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="163,107,211,119,252,128,250,133,210,124,162,112"/>
+<area shape="rect" id="Node000006" href="$classpades__signer_1_1PAdESSigner.html#a25ee615e3e0883ee037395d280d56f46" title="Podpisuje dokument PDF używając klucza prywatnego z pendrive&#39;a." alt="" coords="211,69,433,109"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="163,87,197,87,197,92,163,92"/>
+<area shape="rect" id="Node000004" href="$classgui_1_1PAdESApp.html#aa926bb3fcf27826a641a2a817c53a4f9" title="Ustawia komunikat statusu dla zakładki podpisywania." alt="" coords="521,65,682,105"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="380,131,506,103,507,109,381,137"/>
+<area shape="rect" id="Node000005" href="$classpades__signer_1_1PAdESSigner.html#a2e758a3f080204a4224d9b60a64672cf" title="Aktualizuje status za pomocą wcześniej ustawionego callbacka." alt="" coords="481,129,721,169"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="430,145,468,145,468,151,429,150"/>
+<area shape="poly" id="edge6_Node000006_Node000004" title=" " alt="" coords="433,85,507,84,507,89,434,90"/>
+<area shape="poly" id="edge7_Node000006_Node000005" title=" " alt="" coords="416,107,495,124,494,129,415,112"/>
+</map>
