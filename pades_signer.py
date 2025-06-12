@@ -117,12 +117,13 @@ class PAdESSigner:
             metadata = PdfReader(pdf_path).metadata
             pdf_data = []
             for i in data:
-                if i in metadata:
-                    pdf_data.append(metadata[i])
+                if i in metadata: pdf_data.append(metadata[i])
+                else: pdf_data.append("")
 
-            if not pdf_data or pdf_data[0] == "" or pdf_data[1] == "":
+            if len(pdf_data) < 2 or not pdf_data[0] or not pdf_data[1]:
                 self.update_status("No signature")
                 return False
+
 
             pdf_writer = PdfWriter()
             for a in PdfReader(pdf_path).pages: pdf_writer.add_page(a)
