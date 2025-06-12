@@ -1,15 +1,21 @@
 import sys
 import time
+import os
 from hashlib import sha256
 from Cryptodome.PublicKey import RSA
 from Cryptodome.Cipher import AES
-from Cryptodome.Util.Padding import pad
+from Cryptodome.Util.Padding import pad, unpad
+from Cryptodome.Random import get_random_bytes
 from PyQt5.QtWidgets import QApplication, QWidget, QVBoxLayout, QLabel, QLineEdit, QPushButton
 from PyQt5.QtCore import Qt, QThread, pyqtSignal
 
 
 
 def generate(pin, progress_callback):
+    if not pin or len(pin.strip()) == 0:
+        progress_callback.emit("Error: Password cannot be empty")
+        return
+
     progress_callback.emit("Hashing PIN…")
     key_from_pin = sha256(pin.encode()).digest()
     print("Hash pinu 256-bit: ", key_from_pin)
@@ -26,6 +32,7 @@ def generate(pin, progress_callback):
     progress_callback.emit("Encrypting RSA key…")
     cipher = AES.new(key_from_pin, AES.MODE_ECB)
     rsa_key_encrypted = cipher.encrypt(rsa_key_padded)
+    
     with open('encrypted_private_key.bin', 'wb') as f:
         f.write(rsa_key_encrypted)
     print("Zaszyfrowany klucz prywatny: ", rsa_key_encrypted.hex())
@@ -39,12 +46,13 @@ def generate(pin, progress_callback):
     progress_callback.emit("Done. Saved to encrypted_private_key.bin and public_key.pem")
 
 
-    #################################################
-    rsa_key_decrypted = cipher.decrypt(rsa_key_encrypted)
-    print("Odszyfrowany klucz prywatny: ", rsa_key_decrypted)
-
-
-
+    try:
+        decrypt_cipher = AES.new(key_from_pin, AES.MODE_ECB)
+        decrypted_padded = decrypt_cipher.decrypt(rsa_key_encrypted)
+        decrypted_key = unpad(decrypted_padded, AES.block_size)
+        print("Verification successful - key can be decrypted")
+    except Exception as e:
+        print(f"Warning: Verification failed - {str(e)}")
 
 
 class WorkerThread(QThread):
@@ -71,6 +79,8 @@ class App(QWidget):
 
         # Text
         self.text_input = QLineEdit()
+        self.text_input.setEchoMode(QLineEdit.Password)
+        self.text_input.setPlaceholderText('Enter your password')
         layout.addWidget(self.text_input)
         self.text_input.returnPressed.connect(self.on_click)
 
