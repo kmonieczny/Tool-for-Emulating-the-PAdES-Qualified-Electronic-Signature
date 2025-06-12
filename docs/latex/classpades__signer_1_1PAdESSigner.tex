@@ -1,0 +1,199 @@
+\doxysection{pades\+\_\+signer.\+PAd\+ESSigner Class Reference}
+\hypertarget{classpades__signer_1_1PAdESSigner}{}\label{classpades__signer_1_1PAdESSigner}\index{pades\_signer.PAdESSigner@{pades\_signer.PAdESSigner}}
+
+
+Klasa odpowiedzialna za podpisywanie i weryfikację dokumentów PDF (PAd\+ES).  
+
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classpades__signer_1_1PAdESSigner_a2a002a1fe7879bc43140752f5eecf897}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self)
+\begin{DoxyCompactList}\small\item\em Konstruktor klasy. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classpades__signer_1_1PAdESSigner_aa07738a926063b604a854712dbdd0ac7}{set\+\_\+status\+\_\+callback}} (self, callback)
+\begin{DoxyCompactList}\small\item\em Ustawia funkcję zwrotną do komunikatów statusowych. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classpades__signer_1_1PAdESSigner_a2e758a3f080204a4224d9b60a64672cf}{update\+\_\+status}} (self, message)
+\begin{DoxyCompactList}\small\item\em Aktualizuje status za pomocą wcześniej ustawionego callbacka. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classpades__signer_1_1PAdESSigner_a5a65aba3b31b33c39d621f8fd789e451}{check\+\_\+for\+\_\+pendrive}} (self)
+\begin{DoxyCompactList}\small\item\em Sprawdza, czy podłączono pendrive z zaszyfrowanym kluczem prywatnym. \end{DoxyCompactList}\item 
+\Hypertarget{classpades__signer_1_1PAdESSigner_a5d601b43830b9b119766de569dc2ac45}\label{classpades__signer_1_1PAdESSigner_a5d601b43830b9b119766de569dc2ac45} 
+{\bfseries monitor\+\_\+usb} (self)
+\begin{DoxyCompactList}\small\item\em Wątek monitorujący obecność pendrive’a z kluczem. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classpades__signer_1_1PAdESSigner_a25ee615e3e0883ee037395d280d56f46}{sign\+\_\+document}} (self, pdf\+\_\+path, pin)
+\begin{DoxyCompactList}\small\item\em Podpisuje dokument PDF używając klucza prywatnego z pendrive\textquotesingle{}a. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classpades__signer_1_1PAdESSigner_a7ce928fb37d9f6f6f32094abf51cdbb2}{verify\+\_\+document}} (self, pdf\+\_\+path, public\+\_\+key\+\_\+path)
+\begin{DoxyCompactList}\small\item\em Weryfikuje podpisany dokument PDF. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classpades__signer_1_1PAdESSigner_a9d42fd2aa44b76989fc344cf5f05f35e}\label{classpades__signer_1_1PAdESSigner_a9d42fd2aa44b76989fc344cf5f05f35e} 
+{\bfseries pendrive\+\_\+path}
+\item 
+\Hypertarget{classpades__signer_1_1PAdESSigner_a296f4e7a95fdd0f653fdf355ee623825}\label{classpades__signer_1_1PAdESSigner_a296f4e7a95fdd0f653fdf355ee623825} 
+{\bfseries private\+\_\+key\+\_\+path}
+\item 
+\Hypertarget{classpades__signer_1_1PAdESSigner_a70cdb26ffb4ac939a8253ee88698551b}\label{classpades__signer_1_1PAdESSigner_a70cdb26ffb4ac939a8253ee88698551b} 
+{\bfseries status\+\_\+callback}
+\item 
+\Hypertarget{classpades__signer_1_1PAdESSigner_ab84d1edd7045b716eff4886c4aa71946}\label{classpades__signer_1_1PAdESSigner_ab84d1edd7045b716eff4886c4aa71946} 
+{\bfseries key\+\_\+detected}
+\item 
+\Hypertarget{classpades__signer_1_1PAdESSigner_a978a0b43df4f8ad28aacab0a8d60a90b}\label{classpades__signer_1_1PAdESSigner_a978a0b43df4f8ad28aacab0a8d60a90b} 
+{\bfseries monitor\+\_\+thread}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Klasa odpowiedzialna za podpisywanie i weryfikację dokumentów PDF (PAd\+ES). 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classpades__signer_1_1PAdESSigner_a2a002a1fe7879bc43140752f5eecf897}\label{classpades__signer_1_1PAdESSigner_a2a002a1fe7879bc43140752f5eecf897} 
+\index{pades\_signer.PAdESSigner@{pades\_signer.PAdESSigner}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!pades\_signer.PAdESSigner@{pades\_signer.PAdESSigner}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily pades\+\_\+signer.\+PAd\+ESSigner.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Konstruktor klasy. 
+
+Uruchamia monitoring pendrive\textquotesingle{}a. Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classpades__signer_1_1PAdESSigner_a2a002a1fe7879bc43140752f5eecf897_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classpades__signer_1_1PAdESSigner_a5a65aba3b31b33c39d621f8fd789e451}\label{classpades__signer_1_1PAdESSigner_a5a65aba3b31b33c39d621f8fd789e451} 
+\index{pades\_signer.PAdESSigner@{pades\_signer.PAdESSigner}!check\_for\_pendrive@{check\_for\_pendrive}}
+\index{check\_for\_pendrive@{check\_for\_pendrive}!pades\_signer.PAdESSigner@{pades\_signer.PAdESSigner}}
+\doxysubsubsection{\texorpdfstring{check\_for\_pendrive()}{check\_for\_pendrive()}}
+{\footnotesize\ttfamily pades\+\_\+signer.\+PAd\+ESSigner.\+check\+\_\+for\+\_\+pendrive (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Sprawdza, czy podłączono pendrive z zaszyfrowanym kluczem prywatnym. 
+
+\begin{DoxyReturn}{Returns}
+True jeśli znaleziono właściwy plik, False w przeciwnym razie. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classpades__signer_1_1PAdESSigner_a5a65aba3b31b33c39d621f8fd789e451_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classpades__signer_1_1PAdESSigner_aa07738a926063b604a854712dbdd0ac7}\label{classpades__signer_1_1PAdESSigner_aa07738a926063b604a854712dbdd0ac7} 
+\index{pades\_signer.PAdESSigner@{pades\_signer.PAdESSigner}!set\_status\_callback@{set\_status\_callback}}
+\index{set\_status\_callback@{set\_status\_callback}!pades\_signer.PAdESSigner@{pades\_signer.PAdESSigner}}
+\doxysubsubsection{\texorpdfstring{set\_status\_callback()}{set\_status\_callback()}}
+{\footnotesize\ttfamily pades\+\_\+signer.\+PAd\+ESSigner.\+set\+\_\+status\+\_\+callback (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{callback }\end{DoxyParamCaption})}
+
+
+
+Ustawia funkcję zwrotną do komunikatów statusowych. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em callback} & Funkcja przyjmująca wiadomość tekstową. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classpades__signer_1_1PAdESSigner_a25ee615e3e0883ee037395d280d56f46}\label{classpades__signer_1_1PAdESSigner_a25ee615e3e0883ee037395d280d56f46} 
+\index{pades\_signer.PAdESSigner@{pades\_signer.PAdESSigner}!sign\_document@{sign\_document}}
+\index{sign\_document@{sign\_document}!pades\_signer.PAdESSigner@{pades\_signer.PAdESSigner}}
+\doxysubsubsection{\texorpdfstring{sign\_document()}{sign\_document()}}
+{\footnotesize\ttfamily pades\+\_\+signer.\+PAd\+ESSigner.\+sign\+\_\+document (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{pdf\+\_\+path,  }\item[{}]{pin }\end{DoxyParamCaption})}
+
+
+
+Podpisuje dokument PDF używając klucza prywatnego z pendrive\textquotesingle{}a. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pdf\+\_\+path} & Ścieżka do pliku PDF. \\
+\hline
+{\em pin} & PIN używany do odszyfrowania klucza prywatnego. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True jeśli podpisywanie się powiodło, False w przeciwnym razie. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classpades__signer_1_1PAdESSigner_a25ee615e3e0883ee037395d280d56f46_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classpades__signer_1_1PAdESSigner_a25ee615e3e0883ee037395d280d56f46_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classpades__signer_1_1PAdESSigner_a2e758a3f080204a4224d9b60a64672cf}\label{classpades__signer_1_1PAdESSigner_a2e758a3f080204a4224d9b60a64672cf} 
+\index{pades\_signer.PAdESSigner@{pades\_signer.PAdESSigner}!update\_status@{update\_status}}
+\index{update\_status@{update\_status}!pades\_signer.PAdESSigner@{pades\_signer.PAdESSigner}}
+\doxysubsubsection{\texorpdfstring{update\_status()}{update\_status()}}
+{\footnotesize\ttfamily pades\+\_\+signer.\+PAd\+ESSigner.\+update\+\_\+status (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{message }\end{DoxyParamCaption})}
+
+
+
+Aktualizuje status za pomocą wcześniej ustawionego callbacka. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & Komunikat statusowy do wyświetlenia. \\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classpades__signer_1_1PAdESSigner_a2e758a3f080204a4224d9b60a64672cf_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classpades__signer_1_1PAdESSigner_a7ce928fb37d9f6f6f32094abf51cdbb2}\label{classpades__signer_1_1PAdESSigner_a7ce928fb37d9f6f6f32094abf51cdbb2} 
+\index{pades\_signer.PAdESSigner@{pades\_signer.PAdESSigner}!verify\_document@{verify\_document}}
+\index{verify\_document@{verify\_document}!pades\_signer.PAdESSigner@{pades\_signer.PAdESSigner}}
+\doxysubsubsection{\texorpdfstring{verify\_document()}{verify\_document()}}
+{\footnotesize\ttfamily pades\+\_\+signer.\+PAd\+ESSigner.\+verify\+\_\+document (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{pdf\+\_\+path,  }\item[{}]{public\+\_\+key\+\_\+path }\end{DoxyParamCaption})}
+
+
+
+Weryfikuje podpisany dokument PDF. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pdf\+\_\+path} & Ścieżka do podpisanego pliku PDF. \\
+\hline
+{\em public\+\_\+key\+\_\+path} & Ścieżka do pliku PEM z kluczem publicznym. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True jeśli podpis jest poprawny, False w przeciwnym razie. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classpades__signer_1_1PAdESSigner_a7ce928fb37d9f6f6f32094abf51cdbb2_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classpades__signer_1_1PAdESSigner_a7ce928fb37d9f6f6f32094abf51cdbb2_icgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+main\+\_\+app/pades\+\_\+signer/\mbox{\hyperlink{pades__signer_8py}{pades\+\_\+signer.\+py}}\end{DoxyCompactItemize}

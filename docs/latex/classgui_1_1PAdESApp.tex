@@ -1,0 +1,232 @@
+\doxysection{gui.\+PAd\+ESApp Class Reference}
+\hypertarget{classgui_1_1PAdESApp}{}\label{classgui_1_1PAdESApp}\index{gui.PAdESApp@{gui.PAdESApp}}
+
+
+Klasa głównego okna aplikacji PAd\+ES z interfejsem GUI.  
+
+
+
+
+Inheritance diagram for gui.\+PAd\+ESApp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=167pt]{classgui_1_1PAdESApp__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for gui.\+PAd\+ESApp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=167pt]{classgui_1_1PAdESApp__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classgui_1_1PAdESApp_acf18c42ac87aa47d06114d3b48034966}\label{classgui_1_1PAdESApp_acf18c42ac87aa47d06114d3b48034966} 
+{\bfseries \+\_\+\+\_\+init\+\_\+\+\_\+} (self)
+\begin{DoxyCompactList}\small\item\em Inicjalizuje okno główne i komponenty GUI. \end{DoxyCompactList}\item 
+\Hypertarget{classgui_1_1PAdESApp_a113bcded18b7a897dcea7ad9697ced20}\label{classgui_1_1PAdESApp_a113bcded18b7a897dcea7ad9697ced20} 
+{\bfseries init\+\_\+ui} (self)
+\begin{DoxyCompactList}\small\item\em Tworzy strukturę GUI i ustawia zakładki. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classgui_1_1PAdESApp_a33e6828326b4cfad122f6c0e701b665b}{create\+\_\+sign\+\_\+tab}} (self)
+\begin{DoxyCompactList}\small\item\em Tworzy zakładkę do podpisywania dokumentów PDF. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classgui_1_1PAdESApp_a14b68406b64935ddc9b14e51dfec27d8}{create\+\_\+verify\+\_\+tab}} (self)
+\begin{DoxyCompactList}\small\item\em Tworzy zakładkę do weryfikacji podpisów PDF. \end{DoxyCompactList}\item 
+\Hypertarget{classgui_1_1PAdESApp_aea8b14c649eb90f10f0358ca39f750a2}\label{classgui_1_1PAdESApp_aea8b14c649eb90f10f0358ca39f750a2} 
+{\bfseries select\+\_\+pdf\+\_\+to\+\_\+sign} (self)
+\begin{DoxyCompactList}\small\item\em Otwiera okno dialogowe wyboru pliku PDF do podpisania. \end{DoxyCompactList}\item 
+\Hypertarget{classgui_1_1PAdESApp_ae868b5ec9df0944fdc3e8b963ebf2214}\label{classgui_1_1PAdESApp_ae868b5ec9df0944fdc3e8b963ebf2214} 
+{\bfseries sign\+\_\+document} (self)
+\begin{DoxyCompactList}\small\item\em Podpisuje wybrany dokument PDF po podaniu PIN-\/u i obecności pendrive\textquotesingle{}a. \end{DoxyCompactList}\item 
+\Hypertarget{classgui_1_1PAdESApp_a04d3a2a445d10ad1a46d9c960119419a}\label{classgui_1_1PAdESApp_a04d3a2a445d10ad1a46d9c960119419a} 
+{\bfseries verify\+\_\+document} (self)
+\begin{DoxyCompactList}\small\item\em Weryfikuje podpisany dokument PDF na podstawie podanego klucza publicznego. \end{DoxyCompactList}\item 
+\Hypertarget{classgui_1_1PAdESApp_ac5538aaa780051c991ea4b0ab7ef414b}\label{classgui_1_1PAdESApp_ac5538aaa780051c991ea4b0ab7ef414b} 
+{\bfseries select\+\_\+pdf\+\_\+to\+\_\+verify} (self)
+\begin{DoxyCompactList}\small\item\em Otwiera okno dialogowe wyboru pliku PDF do weryfikacji. \end{DoxyCompactList}\item 
+\Hypertarget{classgui_1_1PAdESApp_a98b4fc4cc779f0f84e79a759ef145b2a}\label{classgui_1_1PAdESApp_a98b4fc4cc779f0f84e79a759ef145b2a} 
+{\bfseries select\+\_\+public\+\_\+key} (self)
+\begin{DoxyCompactList}\small\item\em Otwiera okno dialogowe wyboru pliku klucza publicznego (.pem). \end{DoxyCompactList}\item 
+\Hypertarget{classgui_1_1PAdESApp_ae6539dbc099ca7400124b5a12ddd35b5}\label{classgui_1_1PAdESApp_ae6539dbc099ca7400124b5a12ddd35b5} 
+{\bfseries update\+\_\+pendrive\+\_\+status} (self)
+\begin{DoxyCompactList}\small\item\em Aktualizuje etykietę informującą o stanie pendrive’a. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classgui_1_1PAdESApp_aa926bb3fcf27826a641a2a817c53a4f9}{update\+\_\+status}} (self, message)
+\begin{DoxyCompactList}\small\item\em Ustawia komunikat statusu dla zakładki podpisywania. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classgui_1_1PAdESApp_ad3de9c8eb865f56cfeb7554f89c58397}{update\+\_\+verify\+\_\+status}} (self, message)
+\begin{DoxyCompactList}\small\item\em Ustawia komunikat statusu dla zakładki weryfikacji. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classgui_1_1PAdESApp_a4a67e88187d94e797e645be76e6fe068}\label{classgui_1_1PAdESApp_a4a67e88187d94e797e645be76e6fe068} 
+{\bfseries signer}
+\item 
+\Hypertarget{classgui_1_1PAdESApp_a0571e439efd158e015da7cf89e63154c}\label{classgui_1_1PAdESApp_a0571e439efd158e015da7cf89e63154c} 
+{\bfseries update\+\_\+status}
+\item 
+\Hypertarget{classgui_1_1PAdESApp_a314c435c39f7dc7f51f7df0bf93badaf}\label{classgui_1_1PAdESApp_a314c435c39f7dc7f51f7df0bf93badaf} 
+{\bfseries check\+\_\+pendrive\+\_\+timer}
+\item 
+\Hypertarget{classgui_1_1PAdESApp_a0c60d83662eb1f2a71fe7e8cd93c5a8e}\label{classgui_1_1PAdESApp_a0c60d83662eb1f2a71fe7e8cd93c5a8e} 
+{\bfseries update\+\_\+pendrive\+\_\+status}
+\item 
+\Hypertarget{classgui_1_1PAdESApp_a2636e9433a11ae61dae9c0cc59afa3d0}\label{classgui_1_1PAdESApp_a2636e9433a11ae61dae9c0cc59afa3d0} 
+{\bfseries pendrive\+\_\+status}
+\item 
+\Hypertarget{classgui_1_1PAdESApp_a1c1ad42aea376a2b4b6c0b2a217869bc}\label{classgui_1_1PAdESApp_a1c1ad42aea376a2b4b6c0b2a217869bc} 
+{\bfseries pin\+\_\+input}
+\item 
+\Hypertarget{classgui_1_1PAdESApp_a6c6e9b3f677244c31d2afee4268278da}\label{classgui_1_1PAdESApp_a6c6e9b3f677244c31d2afee4268278da} 
+{\bfseries select\+\_\+pdf\+\_\+to\+\_\+sign}
+\item 
+\Hypertarget{classgui_1_1PAdESApp_aa504dcbee915a1250a02125b71d3ff0a}\label{classgui_1_1PAdESApp_aa504dcbee915a1250a02125b71d3ff0a} 
+{\bfseries selected\+\_\+file\+\_\+label}
+\item 
+\Hypertarget{classgui_1_1PAdESApp_a2cc604000f7b34d11807dbfaf855c4da}\label{classgui_1_1PAdESApp_a2cc604000f7b34d11807dbfaf855c4da} 
+{\bfseries sign\+\_\+document}
+\item 
+\Hypertarget{classgui_1_1PAdESApp_a7bc58c987c51ae47737233810b5881bb}\label{classgui_1_1PAdESApp_a7bc58c987c51ae47737233810b5881bb} 
+{\bfseries status\+\_\+label}
+\item 
+\Hypertarget{classgui_1_1PAdESApp_a9911af655a15d246dae64ddae93b5e71}\label{classgui_1_1PAdESApp_a9911af655a15d246dae64ddae93b5e71} 
+{\bfseries select\+\_\+pdf\+\_\+to\+\_\+verify}
+\item 
+\Hypertarget{classgui_1_1PAdESApp_a0b64748e6326c6752ee8d4fae92f23c2}\label{classgui_1_1PAdESApp_a0b64748e6326c6752ee8d4fae92f23c2} 
+{\bfseries verify\+\_\+file\+\_\+label}
+\item 
+\Hypertarget{classgui_1_1PAdESApp_a4fb51a23d9a9015031190781a07ebe7d}\label{classgui_1_1PAdESApp_a4fb51a23d9a9015031190781a07ebe7d} 
+{\bfseries select\+\_\+public\+\_\+key}
+\item 
+\Hypertarget{classgui_1_1PAdESApp_a4c80cf4c873a0ad1f5a47fc62b59010e}\label{classgui_1_1PAdESApp_a4c80cf4c873a0ad1f5a47fc62b59010e} 
+{\bfseries public\+\_\+key\+\_\+label}
+\item 
+\Hypertarget{classgui_1_1PAdESApp_a37094f4b9da369b59f4562b1293824af}\label{classgui_1_1PAdESApp_a37094f4b9da369b59f4562b1293824af} 
+{\bfseries verify\+\_\+document}
+\item 
+\Hypertarget{classgui_1_1PAdESApp_a12007347ddaa4f0cfc5c76ea88aabe6a}\label{classgui_1_1PAdESApp_a12007347ddaa4f0cfc5c76ea88aabe6a} 
+{\bfseries verify\+\_\+status\+\_\+label}
+\item 
+\Hypertarget{classgui_1_1PAdESApp_ab52050bbef94e2ad1911d6dca355460a}\label{classgui_1_1PAdESApp_ab52050bbef94e2ad1911d6dca355460a} 
+{\bfseries selected\+\_\+file\+\_\+path}
+\item 
+\Hypertarget{classgui_1_1PAdESApp_aad35532f132f305a5ddb288a14798649}\label{classgui_1_1PAdESApp_aad35532f132f305a5ddb288a14798649} 
+{\bfseries update\+\_\+verify\+\_\+status}
+\item 
+\Hypertarget{classgui_1_1PAdESApp_ace9612d2cd510b458de225784cfe8c94}\label{classgui_1_1PAdESApp_ace9612d2cd510b458de225784cfe8c94} 
+{\bfseries verify\+\_\+file\+\_\+path}
+\item 
+\Hypertarget{classgui_1_1PAdESApp_a5090c77d6c900de74e78965a4f84fd84}\label{classgui_1_1PAdESApp_a5090c77d6c900de74e78965a4f84fd84} 
+{\bfseries public\+\_\+key\+\_\+path}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Klasa głównego okna aplikacji PAd\+ES z interfejsem GUI. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classgui_1_1PAdESApp_a33e6828326b4cfad122f6c0e701b665b}\label{classgui_1_1PAdESApp_a33e6828326b4cfad122f6c0e701b665b} 
+\index{gui.PAdESApp@{gui.PAdESApp}!create\_sign\_tab@{create\_sign\_tab}}
+\index{create\_sign\_tab@{create\_sign\_tab}!gui.PAdESApp@{gui.PAdESApp}}
+\doxysubsubsection{\texorpdfstring{create\_sign\_tab()}{create\_sign\_tab()}}
+{\footnotesize\ttfamily gui.\+PAd\+ESApp.\+create\+\_\+sign\+\_\+tab (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Tworzy zakładkę do podpisywania dokumentów PDF. 
+
+\begin{DoxyReturn}{Returns}
+Widget z interfejsem do podpisywania. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classgui_1_1PAdESApp_a33e6828326b4cfad122f6c0e701b665b_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classgui_1_1PAdESApp_a33e6828326b4cfad122f6c0e701b665b_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classgui_1_1PAdESApp_a14b68406b64935ddc9b14e51dfec27d8}\label{classgui_1_1PAdESApp_a14b68406b64935ddc9b14e51dfec27d8} 
+\index{gui.PAdESApp@{gui.PAdESApp}!create\_verify\_tab@{create\_verify\_tab}}
+\index{create\_verify\_tab@{create\_verify\_tab}!gui.PAdESApp@{gui.PAdESApp}}
+\doxysubsubsection{\texorpdfstring{create\_verify\_tab()}{create\_verify\_tab()}}
+{\footnotesize\ttfamily gui.\+PAd\+ESApp.\+create\+\_\+verify\+\_\+tab (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Tworzy zakładkę do weryfikacji podpisów PDF. 
+
+\begin{DoxyReturn}{Returns}
+Widget z interfejsem do weryfikacji. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classgui_1_1PAdESApp_a14b68406b64935ddc9b14e51dfec27d8_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classgui_1_1PAdESApp_a14b68406b64935ddc9b14e51dfec27d8_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classgui_1_1PAdESApp_aa926bb3fcf27826a641a2a817c53a4f9}\label{classgui_1_1PAdESApp_aa926bb3fcf27826a641a2a817c53a4f9} 
+\index{gui.PAdESApp@{gui.PAdESApp}!update\_status@{update\_status}}
+\index{update\_status@{update\_status}!gui.PAdESApp@{gui.PAdESApp}}
+\doxysubsubsection{\texorpdfstring{update\_status()}{update\_status()}}
+{\footnotesize\ttfamily gui.\+PAd\+ESApp.\+update\+\_\+status (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{message }\end{DoxyParamCaption})}
+
+
+
+Ustawia komunikat statusu dla zakładki podpisywania. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & Tekst wiadomości. \\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classgui_1_1PAdESApp_aa926bb3fcf27826a641a2a817c53a4f9_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classgui_1_1PAdESApp_ad3de9c8eb865f56cfeb7554f89c58397}\label{classgui_1_1PAdESApp_ad3de9c8eb865f56cfeb7554f89c58397} 
+\index{gui.PAdESApp@{gui.PAdESApp}!update\_verify\_status@{update\_verify\_status}}
+\index{update\_verify\_status@{update\_verify\_status}!gui.PAdESApp@{gui.PAdESApp}}
+\doxysubsubsection{\texorpdfstring{update\_verify\_status()}{update\_verify\_status()}}
+{\footnotesize\ttfamily gui.\+PAd\+ESApp.\+update\+\_\+verify\+\_\+status (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{message }\end{DoxyParamCaption})}
+
+
+
+Ustawia komunikat statusu dla zakładki weryfikacji. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & Tekst wiadomości. \\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classgui_1_1PAdESApp_ad3de9c8eb865f56cfeb7554f89c58397_icgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+main\+\_\+app/gui/\mbox{\hyperlink{gui_8py}{gui.\+py}}\end{DoxyCompactItemize}
