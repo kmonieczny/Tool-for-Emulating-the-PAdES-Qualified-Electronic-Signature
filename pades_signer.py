@@ -88,9 +88,8 @@ class PAdESSigner:
             hash = hashlib.sha256(signed_stream.read()).digest()
 
             pdf_writer.add_metadata({
-                '/Author': "Name Surname",
-                '/Organisation': "PG",
-                '/DigitalSignature': private_key.sign(hash, padding.PKCS1v15(), hashes.SHA256()).hex()
+                '/DigitalSignature': private_key.sign(hash, padding.PKCS1v15(), hashes.SHA256()).hex(),
+                '/DigitalSignatureTimestamp': datetime.now().strftime("%d.%m.%Y")
             })
 
             signed_pdf_path = os.path.splitext(pdf_path)[0] + '_signed.pdf'
@@ -114,15 +113,14 @@ class PAdESSigner:
             with open(public_key_path, "rb") as key_file:
                 public_key = serialization.load_pem_public_key(key_file.read())
 
-
-            data = ['/DigitalSignature', '/Author', '/Organisation']
+            data = ['/DigitalSignature', '/DigitalSignatureTimestamp']
             metadata = PdfReader(pdf_path).metadata
             pdf_data = []
             for i in data:
                 if i in metadata:
                     pdf_data.append(metadata[i])
 
-            if not pdf_data or pdf_data[0] == "" or pdf_data[1] == "" or pdf_data[2] == "":
+            if not pdf_data or pdf_data[0] == "" or pdf_data[1] == "":
                 self.update_status("No signature")
                 return False
 
@@ -142,7 +140,7 @@ class PAdESSigner:
             try:
                 public_key.verify(bytes.fromhex(pdf_data[0]), hash, padding.PKCS1v15(), hashes.SHA256())
 
-                self.update_status(f"Signature valid!\n{pdf_data[1]}\n{pdf_data[2]}")
+                self.update_status(f"Signature valid!\nSigned: {pdf_data[1]}")
                 return True
 
             except InvalidSignature:
