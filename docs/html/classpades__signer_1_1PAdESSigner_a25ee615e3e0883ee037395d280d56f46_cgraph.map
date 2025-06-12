@@ -1,0 +1,7 @@
+<map id="pades_signer.PAdESSigner.sign_document" name="pades_signer.PAdESSigner.sign_document">
+<area shape="rect" id="Node000001" title="Podpisuje dokument PDF używając klucza prywatnego z pendrive&#39;a." alt="" coords="5,37,228,77"/>
+<area shape="rect" id="Node000002" href="$classgui_1_1PAdESApp.html#aa926bb3fcf27826a641a2a817c53a4f9" title="Ustawia komunikat statusu dla zakładki podpisywania." alt="" coords="315,5,477,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="228,42,301,33,302,39,228,47"/>
+<area shape="rect" id="Node000003" href="$classpades__signer_1_1PAdESSigner.html#a2e758a3f080204a4224d9b60a64672cf" title="Aktualizuje status za pomocą wcześniej ustawionego callbacka." alt="" coords="276,69,516,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="228,67,263,71,262,77,228,73"/>
+</map>

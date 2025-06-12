@@ -1,0 +1,17 @@
+<map id="gui.PAdESApp.create_verify_tab" name="gui.PAdESApp.create_verify_tab">
+<area shape="rect" id="Node000001" title="Tworzy zakładkę do weryfikacji podpisów PDF." alt="" coords="5,101,163,141"/>
+<area shape="rect" id="Node000002" href="$classgui_1_1PAdESApp.html#ac5538aaa780051c991ea4b0ab7ef414b" title="Otwiera okno dialogowe wyboru pliku PDF do weryfikacji." alt="" coords="249,5,404,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="119,99,162,76,210,55,235,46,236,51,212,60,164,81,121,104"/>
+<area shape="rect" id="Node000003" href="$classgui_1_1PAdESApp.html#a98b4fc4cc779f0f84e79a759ef145b2a" title="Otwiera okno dialogowe wyboru pliku klucza publicznego (.pem)." alt="" coords="249,69,404,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="163,108,235,99,236,104,164,114"/>
+<area shape="rect" id="Node000004" href="$classgui_1_1PAdESApp.html#a04d3a2a445d10ad1a46d9c960119419a" title="Weryfikuje podpisany dokument PDF na podstawie podanego klucza publicznego." alt="" coords="250,133,403,173"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="164,129,237,139,236,144,163,134"/>
+<area shape="rect" id="Node000006" href="$classpades__signer_1_1PAdESSigner.html#a7ce928fb37d9f6f6f32094abf51cdbb2" title="Weryfikuje podpisany dokument PDF." alt="" coords="211,197,443,237"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="121,139,164,162,212,183,233,190,231,195,210,188,162,166,119,144"/>
+<area shape="rect" id="Node000005" href="$classgui_1_1PAdESApp.html#ad3de9c8eb865f56cfeb7554f89c58397" title="Ustawia komunikat statusu dla zakładki weryfikacji." alt="" coords="530,133,691,173"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="403,151,516,151,516,156,403,156"/>
+<area shape="rect" id="Node000007" href="$classgui_1_1PAdESApp.html#aa926bb3fcf27826a641a2a817c53a4f9" title="Ustawia komunikat statusu dla zakładki podpisywania." alt="" coords="530,197,691,237"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="443,215,516,215,516,220,443,220"/>
+<area shape="rect" id="Node000008" href="$classpades__signer_1_1PAdESSigner.html#a2e758a3f080204a4224d9b60a64672cf" title="Aktualizuje status za pomocą wcześniej ustawionego callbacka." alt="" coords="491,261,731,301"/>
+<area shape="poly" id="edge7_Node000006_Node000008" title=" " alt="" coords="417,235,509,256,508,261,416,240"/>
+</map>

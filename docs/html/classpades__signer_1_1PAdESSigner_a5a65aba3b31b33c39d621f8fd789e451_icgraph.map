@@ -1,0 +1,7 @@
+<map id="pades_signer.PAdESSigner.check_for_pendrive" name="pades_signer.PAdESSigner.check_for_pendrive">
+<area shape="rect" id="Node000001" title="Sprawdza, czy podłączono pendrive z zaszyfrowanym kluczem prywatnym." alt="" coords="572,5,805,45"/>
+<area shape="rect" id="Node000002" href="$classpades__signer_1_1PAdESSigner.html#a5d601b43830b9b119766de569dc2ac45" title="Wątek monitorujący obecność pendrive’a z kluczem." alt="" coords="248,13,524,38"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="558,28,524,28,524,23,558,23"/>
+<area shape="rect" id="Node000003" href="$classpades__signer_1_1PAdESSigner.html#a2a002a1fe7879bc43140752f5eecf897" title="Konstruktor klasy." alt="" coords="5,5,200,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="234,28,200,28,200,23,234,23"/>
+</map>

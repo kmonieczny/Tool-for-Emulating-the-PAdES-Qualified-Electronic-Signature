@@ -1,0 +1,8 @@
+<map id="gui.PAdESApp.create_sign_tab" name="gui.PAdESApp.create_sign_tab">
+<area shape="rect" id="Node000001" title="Tworzy zakładkę do podpisywania dokumentów PDF." alt="" coords="423,22,580,62"/>
+<area shape="rect" id="Node000002" href="$classgui_1_1PAdESApp.html#a113bcded18b7a897dcea7ad9697ced20" title="Tworzy strukturę GUI i ustawia zakładki." alt="" coords="219,29,375,55"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="409,45,375,45,375,39,409,39"/>
+<area shape="rect" id="Node000003" href="$classgui_1_1PAdESApp.html#acf18c42ac87aa47d06114d3b48034966" title="Inicjalizuje okno główne i komponenty GUI." alt="" coords="5,29,171,55"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="205,45,171,45,171,39,205,39"/>
+<area shape="poly" id="edge3_Node000003_Node000003" title=" " alt="" coords="125,20,115,11,88,8,66,10,54,15,52,20,58,28,54,31,47,21,50,11,65,5,88,3,117,6,128,15"/>
+</map>
