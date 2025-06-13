@@ -15,6 +15,17 @@ def generate(pin, progress_callback):
         progress_callback.emit("Error: Password cannot be empty")
         return
 
+    output_dir_d = "D:"
+    output_dir_h = "H:"
+    output_dir = ""
+    if  os.path.exists(output_dir_h):
+        output_dir = output_dir_h
+    elif os.path.exists(output_dir_d):
+        output_dir = output_dir_d
+    else: 
+        progress_callback.emit("Error: Please ensure pendrive is connected.")
+        return
+
     progress_callback.emit("Hashing PIN…")
     key_from_pin = sha256(pin.encode()).digest()
     print("Hash pinu 256-bit: ", key_from_pin)
@@ -26,21 +37,22 @@ def generate(pin, progress_callback):
     rsa_key_padded = pad(rsa_private_key, AES.block_size)
     print("Prywatny klucz RSA 4096-bit: ", rsa_key_padded)
 
-
     progress_callback.emit("Encrypting RSA key…")
     cipher = AES.new(key_from_pin, AES.MODE_ECB)
     rsa_key_encrypted = cipher.encrypt(rsa_key_padded)
     
-    with open('encrypted_private_key.bin', 'wb') as f:
+    private_key_path = os.path.join(output_dir, 'encrypted_private_key.bin')
+    with open(private_key_path, 'wb') as f:
         f.write(rsa_key_encrypted)
     print("Zaszyfrowany klucz prywatny: ", rsa_key_encrypted.hex())
 
     progress_callback.emit("Saving public key…")
-    with open('public_key.pem', 'wb') as f:
+    public_key_path = os.path.join(output_dir, 'public_key.pem')
+    with open(public_key_path, 'wb') as f:
         f.write(rsa_public_key)
     print("Klucz publiczny: ", rsa_public_key.decode())
 
-    progress_callback.emit("Done. Saved to encrypted_private_key.bin and public_key.pem")
+    progress_callback.emit(f"Done. Saved to {private_key_path} and {public_key_path}")
 
     try:
         decrypt_cipher = AES.new(key_from_pin, AES.MODE_ECB)
